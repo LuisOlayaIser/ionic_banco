@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-title>Login</ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+
+    <ion-grid>
+        <ion-row class="ion-justify-content-center">
+            <ion-col class="ion-align-self-center">
+                <img src="/assets/bank.jpg" />
+                <form #formulario="ngForm" (ngSubmit)="login()">
+                    <ion-item>
+                        <ion-label color="primary" position="floating" class="ion-text-center">Correo electrónico
+                        </ion-label>
+                        <ion-input type="text" [(ngModel)]="user" name="user" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label color="primary" position="floating" class="ion-text-center">Contraseña</ion-label>
+                        <ion-input [type]="typeInput" [(ngModel)]="pass" name="pass" min="5" required>
+                            <ion-button fill="none" type="button" item-end class="btn_eye_icon" (click)="togglePasswordMode()">
+                                <ion-icon [name]="iconpassword"></ion-icon>
+                            </ion-button>
+                        </ion-input>
+
+                    </ion-item>
+
+                    <ion-button type="submit" shape="round" expand="block" [disabled]="formulario.invalid">
+                        <ion-text class="white">Acceder</ion-text>
+                    </ion-button>
+                </form>
+
+                <ion-row>
+                    <ion-col size="12">
+                        <ion-button routerLink="/signup" color="dark" shape="round" expand="block">
+                            Crear cuenta
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,27 @@
+ion-content {
+    --padding-top: 16px;
+    .logo-full {
+        --size: 280px;
+        margin: auto;
+    }
+}
+
+ion-grid {
+    height: 100%;
+    justify-content: center;
+}
+
+.btn_eye_icon {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    background: transparent;
+    ion-icon {
+        font-size: 22px;
+        color: #757575;
+    }
+}
+
+.btn_eye_icon:focus {
+    outline: none !important;
+}

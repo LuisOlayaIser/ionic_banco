@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="Atras"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Cuenta</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div *ngIf="view">
+        Alias: {{account.alias}}
+        <ion-button (click)="editAlias()" fill="clear" shape="round">
+            <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button> <br> Numero de cuenta: {{account.number}} <br> Tipo de cuenta: {{account.account_type.name}} <br> Saldo: ${{account.balance | moneda}} COP
+        <ion-button (click)="openAction()" expand="block" fill="clear" shape="round">
+            Opciones
+        </ion-button>
+        <div>
+            <ion-list>
+                Movimientos
+                <ion-item *ngFor="let movement of account.movements">
+                    <ion-label>
+                        <p>{{movement.transaction}} <br> {{movement.date | fecha}} <br> </p>
+                    </ion-label>
+                    <span>
+            {{movement.pivot.type == 'origin'? '-': '+'}} ${{(movement.coin=='USD'?movement.amount/3500: movement.amount) | moneda}} {{movement.coin}}
+          </span>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+
+</ion-content>

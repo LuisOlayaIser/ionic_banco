@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './core/guards/login.guard';
+import { TabsGuard } from './core/guards/tabs.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadChildren: () => import('./private/private-routing.module').then( m => m.PrivateRoutingModule),
+    canActivate: [TabsGuard]
+  },
+  {
+    path: '',
+    loadChildren: () => import('./public/public-routing.module').then( m => m.PublicRoutingModule),
+    canActivate: [LoginGuard]
   },
 ];
 

@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-title>Header</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">
+                <ion-icon slot="start" name="close"></ion-icon>
+                Cerrar
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <span>{{url}}</span><br>
+    <img *ngIf="url" [src]="url" alt="">
+</ion-content>

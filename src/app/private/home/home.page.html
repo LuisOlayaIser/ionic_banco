@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Inicio
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="openModal()">
+                <ion-icon slot="start" name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+        <h2>Cuentas corrientes</h2>
+        <h3 *ngIf="(accounts| filtro: '1': 'account_type_id': 2).length == 0">No hay cuentas</h3>
+        <ion-item *ngFor="let account of accounts | filtro: '1': 'account_type_id': 2" (click)="movement(account.id)">
+            <ion-label>{{account.number}}</ion-label>
+            <span>
+              ${{account.balance | moneda}} COP
+            </span>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <h2>Cuentas ahorro</h2>
+        <h3 *ngIf=" (accounts| filtro: '2': 'account_type_id': 2).length==0 ">No hay cuentas</h3>
+        <ion-item *ngFor="let account of accounts| filtro: '2': 'account_type_id': 2 " (click)="movement(account.id) ">
+            <ion-label>{{account.number}}</ion-label>
+            <span>
+                ${{account.balance | moneda}} COP
+            </span>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

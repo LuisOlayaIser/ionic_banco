@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="Atras"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registro</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #formulario="ngForm" (ngSubmit)="send()">
+        <ion-item>
+            <ion-label color="primary" position="floating" class="ion-text-center">Nombre
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="data.name" name="name" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="floating" class="ion-text-center">Cedula
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="data.identification_card" name="cc" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="floating" class="ion-text-center">Correo electrónico
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="data.email" name="email" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="floating" class="ion-text-center">Contraseña</ion-label>
+            <ion-input [type]="typeInput" [(ngModel)]="data.password" name="pass" min="5" required>
+                <ion-button fill="none" type="button" item-end class="btn_eye_icon" (click)="togglePasswordMode()">
+                    <ion-icon [name]="iconpassword"></ion-icon>
+                </ion-button>
+            </ion-input>
+
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" position="floating" class="ion-text-center">Repite la Contraseña</ion-label>
+            <ion-input [type]="typeInputRepit" [(ngModel)]="passwordRepit" name="pass" min="5" required>
+                <ion-button fill="none" type="button" item-end class="btn_eye_icon" (click)="togglePasswordModeRepit()">
+                    <ion-icon [name]="iconpasswordRepit"></ion-icon>
+                </ion-button>
+            </ion-input>
+
+        </ion-item>
+
+        <ion-button type="submit" shape="round" expand="block" [disabled]="formulario.invalid">
+            <ion-text class="white">Acceder</ion-text>
+        </ion-button>
+    </form>
+</ion-content>

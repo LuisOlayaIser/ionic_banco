@@ -1,13 +1,14 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "banco",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 0
-    }
-  },
-  "cordova": {}
+    "appId": "io.ionic.starter",
+    "appName": "banco",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www",
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 0
+        }
+    },
+    "cordova": {},
+    "linuxAndroidStudioPath": "/home/usuario/Descargas/software/android-studio/bin/studio.sh"
 }
